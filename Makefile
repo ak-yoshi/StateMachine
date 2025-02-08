@@ -16,7 +16,7 @@ OBJ_PATH := bin/obj
 BIN_PATH := bin
 
 # define include path
-INCLUDE := -I$(subst :, -I, $(CPATH)) $(foreach dir, $(SRC_PATH), -I/$(dir))
+INCLUDE := $(foreach dir, $(SRC_PATH), -I./$(dir))
 
 # define path for source, object and dependency file
 SRCS := $(foreach suffix, $(SRC_SUFFIX), $(filter %$(suffix), $(foreach dir, $(SRC_PATH), $(wildcard $(dir)/*))))
